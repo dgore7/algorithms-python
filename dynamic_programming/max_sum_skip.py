@@ -1,5 +1,5 @@
 # find the max sum in the array with the constraint that you may not sum adjacent values
-def max_sum_skip(arr : list) -> int:
+def max_sum_skip(arr: list) -> int:
     n = len(arr)
     if n <= 2:
         return max(arr)

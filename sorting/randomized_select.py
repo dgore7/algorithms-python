@@ -1,22 +1,22 @@
-import rando
+import random
 
 
 def randomized_select(arr, lo, hi, target):
     while True:
-        pivot_index = rando.randint(lo, hi)
+        pivot_index = random.randint(lo, hi)
         part_point = partition(arr, lo, hi, pivot_index)
-        pivot_dist = part_point - lo
-        if pivot_dist == target:
+        #pivot_dist = part_point - lo
+        if part_point == target:
             return arr[part_point]
-        elif target < pivot_dist:
+        elif target < part_point:
             hi = part_point - 1
         else:
-            target -= pivot_dist + 1
+            #target -= pivot_dist + 1
             lo = part_point + 1
 
 
 def select(arr, target):
-    rando.shuffle(arr)
+    random.shuffle(arr)
     return randomized_select(arr, 0, len(arr) - 1, target)
 
 
@@ -39,5 +39,5 @@ def swap(arr, i, j):
 
 if __name__ == '__main__':
     arr = [1, 64, 324, 73, 23, 37, 24]
-    print(select(arr, 0))
+    print(select(arr, 1))
 
